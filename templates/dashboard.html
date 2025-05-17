@@ -1,0 +1,32 @@
+<!-- templates/dashboard.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+     {% extends 'base.html' %}
+
+    {% block content %}
+    <h2>Welcome, {{ user.username }}!</h2>
+    <a href="{{ url_for('logout') }}">Logout</a>
+    <h3>Your Notes</h3>
+    <a href="{{ url_for('add_note') }}">+ Add New Note</a>
+    <ul>
+        {% for note in notes %}
+            <li>
+                <strong>{{ note.title }}</strong> ({{ note.date_created.strftime('%Y-%m-%d') }})
+                <br>
+                {{ note.content }}
+                <br>
+                <a href="{{ url_for('edit_note', note_id=note.id) }}">Edit</a> |
+                <a href="{{ url_for('delete_note', note_id=note.id) }}">Delete</a>
+            </li>
+            <hr>
+        {% else %}
+            <p>No notes yet.</p>
+        {% endfor %}
+    </ul>
+    {% endblock %}
+</body>
+</html>

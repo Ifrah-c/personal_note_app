@@ -1,0 +1,23 @@
+<!-- templates/add_note.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Note</title>
+</head>
+<body>
+     {% extends 'base.html' %}
+
+    {% block content %}
+    <h2>Add New Note</h2>
+    <form method="POST">
+        <label>Title:</label><br>
+        <input type="text" name="title" required><br><br>
+        <label>Content:</label><br>
+        <textarea name="content" rows="5" cols="30" required></textarea><br><br>
+        <button type="submit">Add Note</button>
+    </form>
+    <br>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    {% endblock %}
+</body>
+</html>

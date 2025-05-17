@@ -1,0 +1,23 @@
+<!-- templates/edit_note.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Note</title>
+</head>
+<body>
+     {% extends 'base.html' %}
+
+    {% block content %}
+    <h2>Edit Note</h2>
+    <form method="POST">
+        <label>Title:</label><br>
+        <input type="text" name="title" value="{{ note.title }}" required><br><br>
+        <label>Content:</label><br>
+        <textarea name="content" rows="5" cols="30" required>{{ note.content }}</textarea><br><br>
+        <button type="submit">Update Note</button>
+    </form>
+    <br>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    {% endblock %}
+</body>
+</html>

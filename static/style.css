@@ -1,0 +1,14 @@
+/* static/style.css */
+.flash-messages {
+    list-style-type: none;
+    padding: 0;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    margin-bottom: 15px;
+}
+
+.flash-messages li {
+    padding: 10px;
+    font-weight: bold;
+}
