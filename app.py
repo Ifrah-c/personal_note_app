@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 # Configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///notes.db'
-app.config['SECRET_KEY'] = 'your_secret_key'  # Replace with a secure key
+app.config['SECRET_KEY'] = 'your_secret_key'  
 
 # Initialize the database
 db = SQLAlchemy(app)
@@ -29,6 +29,10 @@ class Note(db.Model):
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
+
+@app.route('/')
+def home():
+    return redirect(url_for('login'))
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
