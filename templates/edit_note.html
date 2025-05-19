@@ -1,23 +1,19 @@
 <!-- templates/edit_note.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Note</title>
-</head>
-<body>
-     {% extends 'base.html' %}
+{% extends 'base.html' %}
 
-    {% block content %}
-    <h2>Edit Note</h2>
-    <form method="POST">
-        <label>Title:</label><br>
-        <input type="text" name="title" value="{{ note.title }}" required><br><br>
-        <label>Content:</label><br>
-        <textarea name="content" rows="5" cols="30" required>{{ note.content }}</textarea><br><br>
-        <button type="submit">Update Note</button>
-    </form>
-    <br>
-    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
-    {% endblock %}
-</body>
-</html>
+{% block title %}Edit Note{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Edit Note</h2>
+<form method="POST" class="card p-4 shadow-sm">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" name="title" value="{{ note.title }}" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="content" class="form-label">Content:</label>
+        <textarea name="content" class="form-control" rows="5" required>{{ note.content }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Update Note</button>
+</form>
+{% endblock %}

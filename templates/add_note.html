@@ -1,23 +1,19 @@
 <!-- templates/add_note.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Add Note</title>
-</head>
-<body>
-     {% extends 'base.html' %}
+{% extends 'base.html' %}
 
-    {% block content %}
-    <h2>Add New Note</h2>
-    <form method="POST">
-        <label>Title:</label><br>
-        <input type="text" name="title" required><br><br>
-        <label>Content:</label><br>
-        <textarea name="content" rows="5" cols="30" required></textarea><br><br>
-        <button type="submit">Add Note</button>
-    </form>
-    <br>
-    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
-    {% endblock %}
-</body>
-</html>
+{% block title %}Add Note{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Add Note</h2>
+<form method="POST" action="/add" class="card p-4 shadow-sm">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" name="title" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="content" class="form-label">Content:</label>
+        <textarea name="content" class="form-control" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Note</button>
+</form>
+{% endblock %}
