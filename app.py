@@ -49,7 +49,7 @@ def signup():
         if existing_user:
             flash('Username already exists!')
             return redirect(url_for('signup'))
-        new_user = User(username=username, password=hashed_pw)
+        new_user = User(username=username,email=email, password=password)
         db.session.add(new_user)
         db.session.commit()
         flash('Signup successful. Please log in.')
