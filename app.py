@@ -43,8 +43,8 @@ def home():
 def signup():
     if request.method == 'POST':
         username = request.form['username']
-        password = request.form['password']
-        hashed_pw = generate_password_hash(password)
+        email=request.form['email']
+        password = generate_password_hash(request.form['password'])
         existing_user = User.query.filter_by(username=username).first()
         if existing_user:
             flash('Username already exists!')
