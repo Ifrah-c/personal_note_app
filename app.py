@@ -4,6 +4,7 @@ from flask import Flask,render_template, request, redirect, url_for, flash, sess
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from flask_migrate import Migrate
 import os
 
 app = Flask(__name__)
@@ -14,6 +15,7 @@ app.config['SECRET_KEY'] = 'your_secret_key'
 
 # Initialize the database
 db = SQLAlchemy(app)
+migrate=Migrate(app, db)
 
 # User Model
 class User(db.Model):
